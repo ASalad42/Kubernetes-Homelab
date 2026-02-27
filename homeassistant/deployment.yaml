@@ -28,6 +28,13 @@ spec:
         env:
         - name: TZ
           value: Europe/London
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
         volumeMounts:
         - mountPath: /config
           name: homeassistant
@@ -57,6 +64,13 @@ spec:
               key: POSTGRES_DB
         - name: POSTGRES_INITDB_ARGS
           value: --encoding=UTF-8
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: homeassistant
